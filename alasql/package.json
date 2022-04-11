@@ -1,0 +1,6 @@
+{
+  "name": "alasql",
+  "dependencies": {
+    "alasql": "^1.7.3"
+  }
+}
