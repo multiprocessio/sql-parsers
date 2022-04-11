@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	
 	"github.com/dolthub/go-mysql-server/sql"
 	"github.com/dolthub/go-mysql-server/sql/parse"
 	"github.com/kr/pretty"
@@ -9,7 +11,7 @@ import (
 func main() {
 	simple := "SELECT * FROM x"
 	
-	medium := "SELECT COUNT(1) AS count, name group FROM t GROUP BY name LIMIT 10"
+	medium := "SELECT COUNT(1) AS count, name section FROM t GROUP BY name LIMIT 10"
 	
 	complex := `
 SELECT 
@@ -27,12 +29,15 @@ HAVING AVG(ISNULL(DATEDIFF(SECOND, call.start_time, call.end_time),0)) > (SELECT
 ORDER BY calls DESC, country.id ASC;
 `
 
-	for _,  test := range []string{simple, medium, complex} {
+	simplebad := "SELECT * FROM GROUP BY age"
+
+	for _,  test := range []string{simple, medium, complex, simplebad} {
 		ast, err := parse.Parse(sql.NewEmptyContext(), test)
 		if err != nil {
-			panic(err)
+			fmt.Println(err)
+			continue
 		}
 
-		pretty.Logln(ast)
+		fmt.Println(pretty.Sprint(ast))
 	}
 }
