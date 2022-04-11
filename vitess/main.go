@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
-	
-	"github.com/dolthub/go-mysql-server/sql"
-	"github.com/dolthub/go-mysql-server/sql/parse"
+
+	"vitess.io/vitess/go/vt/sqlparser"
 	"github.com/kr/pretty"
 )
 
@@ -32,7 +31,7 @@ ORDER BY talks DESC, country.id ASC;
 	simplebad := "SELECT * FROM GROUP BY age"
 
 	for _,  test := range []string{simple, medium, complex, simplebad} {
-		ast, err := parse.Parse(sql.NewEmptyContext(), test)
+		ast, _, err := sqlparser.Parse2(test)
 		if err != nil {
 			fmt.Println(err)
 			continue
