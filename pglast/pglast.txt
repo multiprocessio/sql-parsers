@@ -1,0 +1,839 @@
+{
+  "stmts": [
+    {
+      "stmt": {
+        "SelectStmt": {
+          "fromClause": [
+            {
+              "RangeVar": {
+                "inh": true,
+                "location": 14,
+                "relname": "x",
+                "relpersistence": "p"
+              }
+            }
+          ],
+          "limitOption": "LIMIT_OPTION_DEFAULT",
+          "op": "SETOP_NONE",
+          "targetList": [
+            {
+              "ResTarget": {
+                "location": 7,
+                "val": {
+                  "ColumnRef": {
+                    "fields": [
+                      {
+                        "A_Star": {}
+                      }
+                    ],
+                    "location": 7
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "version": 130003
+}
+{
+  "stmts": [
+    {
+      "stmt": {
+        "SelectStmt": {
+          "fromClause": [
+            {
+              "RangeVar": {
+                "inh": true,
+                "location": 44,
+                "relname": "t",
+                "relpersistence": "p"
+              }
+            }
+          ],
+          "groupClause": [
+            {
+              "ColumnRef": {
+                "fields": [
+                  {
+                    "String": {
+                      "str": "name"
+                    }
+                  }
+                ],
+                "location": 55
+              }
+            }
+          ],
+          "limitCount": {
+            "A_Const": {
+              "location": 66,
+              "val": {
+                "Integer": {
+                  "ival": 10
+                }
+              }
+            }
+          },
+          "limitOption": "LIMIT_OPTION_COUNT",
+          "op": "SETOP_NONE",
+          "targetList": [
+            {
+              "ResTarget": {
+                "location": 7,
+                "name": "count",
+                "val": {
+                  "FuncCall": {
+                    "args": [
+                      {
+                        "A_Const": {
+                          "location": 13,
+                          "val": {
+                            "Integer": {
+                              "ival": 1
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "funcname": [
+                      {
+                        "String": {
+                          "str": "count"
+                        }
+                      }
+                    ],
+                    "location": 7
+                  }
+                }
+              }
+            },
+            {
+              "ResTarget": {
+                "location": 26,
+                "name": "section",
+                "val": {
+                  "ColumnRef": {
+                    "fields": [
+                      {
+                        "String": {
+                          "str": "name"
+                        }
+                      }
+                    ],
+                    "location": 26
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "version": 130003
+}
+{
+  "stmts": [
+    {
+      "stmt": {
+        "SelectStmt": {
+          "fromClause": [
+            {
+              "JoinExpr": {
+                "jointype": "JOIN_LEFT",
+                "larg": {
+                  "JoinExpr": {
+                    "jointype": "JOIN_LEFT",
+                    "larg": {
+                      "JoinExpr": {
+                        "jointype": "JOIN_LEFT",
+                        "larg": {
+                          "RangeVar": {
+                            "inh": true,
+                            "location": 188,
+                            "relname": "country",
+                            "relpersistence": "p"
+                          }
+                        },
+                        "quals": {
+                          "A_Expr": {
+                            "kind": "AEXPR_OP",
+                            "lexpr": {
+                              "ColumnRef": {
+                                "fields": [
+                                  {
+                                    "String": {
+                                      "str": "city"
+                                    }
+                                  },
+                                  {
+                                    "String": {
+                                      "str": "country_id"
+                                    }
+                                  }
+                                ],
+                                "location": 215
+                              }
+                            },
+                            "location": 231,
+                            "name": [
+                              {
+                                "String": {
+                                  "str": "="
+                                }
+                              }
+                            ],
+                            "rexpr": {
+                              "ColumnRef": {
+                                "fields": [
+                                  {
+                                    "String": {
+                                      "str": "country"
+                                    }
+                                  },
+                                  {
+                                    "String": {
+                                      "str": "id"
+                                    }
+                                  }
+                                ],
+                                "location": 233
+                              }
+                            }
+                          }
+                        },
+                        "rarg": {
+                          "RangeVar": {
+                            "inh": true,
+                            "location": 207,
+                            "relname": "city",
+                            "relpersistence": "p"
+                          }
+                        }
+                      }
+                    },
+                    "quals": {
+                      "A_Expr": {
+                        "kind": "AEXPR_OP",
+                        "lexpr": {
+                          "ColumnRef": {
+                            "fields": [
+                              {
+                                "String": {
+                                  "str": "city"
+                                }
+                              },
+                              {
+                                "String": {
+                                  "str": "id"
+                                }
+                              }
+                            ],
+                            "location": 266
+                          }
+                        },
+                        "location": 274,
+                        "name": [
+                          {
+                            "String": {
+                              "str": "="
+                            }
+                          }
+                        ],
+                        "rexpr": {
+                          "ColumnRef": {
+                            "fields": [
+                              {
+                                "String": {
+                                  "str": "customer"
+                                }
+                              },
+                              {
+                                "String": {
+                                  "str": "city_id"
+                                }
+                              }
+                            ],
+                            "location": 276
+                          }
+                        }
+                      }
+                    },
+                    "rarg": {
+                      "RangeVar": {
+                        "inh": true,
+                        "location": 254,
+                        "relname": "customer",
+                        "relpersistence": "p"
+                      }
+                    }
+                  }
+                },
+                "quals": {
+                  "A_Expr": {
+                    "kind": "AEXPR_OP",
+                    "lexpr": {
+                      "ColumnRef": {
+                        "fields": [
+                          {
+                            "String": {
+                              "str": "talk"
+                            }
+                          },
+                          {
+                            "String": {
+                              "str": "customer_id"
+                            }
+                          }
+                        ],
+                        "location": 311
+                      }
+                    },
+                    "location": 328,
+                    "name": [
+                      {
+                        "String": {
+                          "str": "="
+                        }
+                      }
+                    ],
+                    "rexpr": {
+                      "ColumnRef": {
+                        "fields": [
+                          {
+                            "String": {
+                              "str": "customer"
+                            }
+                          },
+                          {
+                            "String": {
+                              "str": "id"
+                            }
+                          }
+                        ],
+                        "location": 330
+                      }
+                    }
+                  }
+                },
+                "rarg": {
+                  "RangeVar": {
+                    "inh": true,
+                    "location": 303,
+                    "relname": "talk",
+                    "relpersistence": "p"
+                  }
+                }
+              }
+            }
+          ],
+          "groupClause": [
+            {
+              "ColumnRef": {
+                "fields": [
+                  {
+                    "String": {
+                      "str": "country"
+                    }
+                  },
+                  {
+                    "String": {
+                      "str": "id"
+                    }
+                  }
+                ],
+                "location": 353
+              }
+            },
+            {
+              "ColumnRef": {
+                "fields": [
+                  {
+                    "String": {
+                      "str": "country"
+                    }
+                  },
+                  {
+                    "String": {
+                      "str": "country_name_eng"
+                    }
+                  }
+                ],
+                "location": 366
+              }
+            }
+          ],
+          "havingClause": {
+            "A_Expr": {
+              "kind": "AEXPR_OP",
+              "lexpr": {
+                "FuncCall": {
+                  "args": [
+                    {
+                      "FuncCall": {
+                        "args": [
+                          {
+                            "FuncCall": {
+                              "args": [
+                                {
+                                  "ColumnRef": {
+                                    "fields": [
+                                      {
+                                        "String": {
+                                          "str": "second"
+                                        }
+                                      }
+                                    ],
+                                    "location": 418
+                                  }
+                                },
+                                {
+                                  "ColumnRef": {
+                                    "fields": [
+                                      {
+                                        "String": {
+                                          "str": "talk"
+                                        }
+                                      },
+                                      {
+                                        "String": {
+                                          "str": "start_time"
+                                        }
+                                      }
+                                    ],
+                                    "location": 426
+                                  }
+                                },
+                                {
+                                  "ColumnRef": {
+                                    "fields": [
+                                      {
+                                        "String": {
+                                          "str": "talk"
+                                        }
+                                      },
+                                      {
+                                        "String": {
+                                          "str": "end_time"
+                                        }
+                                      }
+                                    ],
+                                    "location": 443
+                                  }
+                                }
+                              ],
+                              "funcname": [
+                                {
+                                  "String": {
+                                    "str": "datediff"
+                                  }
+                                }
+                              ],
+                              "location": 409
+                            }
+                          },
+                          {
+                            "A_Const": {
+                              "location": 458,
+                              "val": {
+                                "Integer": {
+                                  "ival": 0
+                                }
+                              }
+                            }
+                          }
+                        ],
+                        "funcname": [
+                          {
+                            "String": {
+                              "str": "isnull"
+                            }
+                          }
+                        ],
+                        "location": 402
+                      }
+                    }
+                  ],
+                  "funcname": [
+                    {
+                      "String": {
+                        "str": "avg"
+                      }
+                    }
+                  ],
+                  "location": 398
+                }
+              },
+              "location": 462,
+              "name": [
+                {
+                  "String": {
+                    "str": ">"
+                  }
+                }
+              ],
+              "rexpr": {
+                "SubLink": {
+                  "location": 464,
+                  "subLinkType": "EXPR_SUBLINK",
+                  "subselect": {
+                    "SelectStmt": {
+                      "fromClause": [
+                        {
+                          "RangeVar": {
+                            "inh": true,
+                            "location": 531,
+                            "relname": "talk",
+                            "relpersistence": "p"
+                          }
+                        }
+                      ],
+                      "limitOption": "LIMIT_OPTION_DEFAULT",
+                      "op": "SETOP_NONE",
+                      "targetList": [
+                        {
+                          "ResTarget": {
+                            "location": 472,
+                            "val": {
+                              "FuncCall": {
+                                "args": [
+                                  {
+                                    "FuncCall": {
+                                      "args": [
+                                        {
+                                          "ColumnRef": {
+                                            "fields": [
+                                              {
+                                                "String": {
+                                                  "str": "second"
+                                                }
+                                              }
+                                            ],
+                                            "location": 485
+                                          }
+                                        },
+                                        {
+                                          "ColumnRef": {
+                                            "fields": [
+                                              {
+                                                "String": {
+                                                  "str": "talk"
+                                                }
+                                              },
+                                              {
+                                                "String": {
+                                                  "str": "start_time"
+                                                }
+                                              }
+                                            ],
+                                            "location": 493
+                                          }
+                                        },
+                                        {
+                                          "ColumnRef": {
+                                            "fields": [
+                                              {
+                                                "String": {
+                                                  "str": "talk"
+                                                }
+                                              },
+                                              {
+                                                "String": {
+                                                  "str": "end_time"
+                                                }
+                                              }
+                                            ],
+                                            "location": 510
+                                          }
+                                        }
+                                      ],
+                                      "funcname": [
+                                        {
+                                          "String": {
+                                            "str": "datediff"
+                                          }
+                                        }
+                                      ],
+                                      "location": 476
+                                    }
+                                  }
+                                ],
+                                "funcname": [
+                                  {
+                                    "String": {
+                                      "str": "avg"
+                                    }
+                                  }
+                                ],
+                                "location": 472
+                              }
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "limitOption": "LIMIT_OPTION_DEFAULT",
+          "op": "SETOP_NONE",
+          "sortClause": [
+            {
+              "SortBy": {
+                "location": -1,
+                "node": {
+                  "ColumnRef": {
+                    "fields": [
+                      {
+                        "String": {
+                          "str": "talks"
+                        }
+                      }
+                    ],
+                    "location": 546
+                  }
+                },
+                "sortby_dir": "SORTBY_DESC",
+                "sortby_nulls": "SORTBY_NULLS_DEFAULT"
+              }
+            },
+            {
+              "SortBy": {
+                "location": -1,
+                "node": {
+                  "ColumnRef": {
+                    "fields": [
+                      {
+                        "String": {
+                          "str": "country"
+                        }
+                      },
+                      {
+                        "String": {
+                          "str": "id"
+                        }
+                      }
+                    ],
+                    "location": 558
+                  }
+                },
+                "sortby_dir": "SORTBY_ASC",
+                "sortby_nulls": "SORTBY_NULLS_DEFAULT"
+              }
+            }
+          ],
+          "targetList": [
+            {
+              "ResTarget": {
+                "location": 10,
+                "val": {
+                  "ColumnRef": {
+                    "fields": [
+                      {
+                        "String": {
+                          "str": "country"
+                        }
+                      },
+                      {
+                        "String": {
+                          "str": "country_name_eng"
+                        }
+                      }
+                    ],
+                    "location": 10
+                  }
+                }
+              }
+            },
+            {
+              "ResTarget": {
+                "location": 37,
+                "name": "talks",
+                "val": {
+                  "FuncCall": {
+                    "args": [
+                      {
+                        "CaseExpr": {
+                          "args": [
+                            {
+                              "CaseWhen": {
+                                "expr": {
+                                  "NullTest": {
+                                    "arg": {
+                                      "ColumnRef": {
+                                        "fields": [
+                                          {
+                                            "String": {
+                                              "str": "talk"
+                                            }
+                                          },
+                                          {
+                                            "String": {
+                                              "str": "id"
+                                            }
+                                          }
+                                        ],
+                                        "location": 51
+                                      }
+                                    },
+                                    "location": 59,
+                                    "nulltesttype": "IS_NOT_NULL"
+                                  }
+                                },
+                                "location": 46,
+                                "result": {
+                                  "A_Const": {
+                                    "location": 76,
+                                    "val": {
+                                      "Integer": {
+                                        "ival": 1
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "defresult": {
+                            "A_Const": {
+                              "location": 83,
+                              "val": {
+                                "Integer": {
+                                  "ival": 0
+                                }
+                              }
+                            }
+                          },
+                          "location": 41
+                        }
+                      }
+                    ],
+                    "funcname": [
+                      {
+                        "String": {
+                          "str": "sum"
+                        }
+                      }
+                    ],
+                    "location": 37
+                  }
+                }
+              }
+            },
+            {
+              "ResTarget": {
+                "location": 101,
+                "name": "avg_difference",
+                "val": {
+                  "FuncCall": {
+                    "args": [
+                      {
+                        "FuncCall": {
+                          "args": [
+                            {
+                              "FuncCall": {
+                                "args": [
+                                  {
+                                    "ColumnRef": {
+                                      "fields": [
+                                        {
+                                          "String": {
+                                            "str": "second"
+                                          }
+                                        }
+                                      ],
+                                      "location": 121
+                                    }
+                                  },
+                                  {
+                                    "ColumnRef": {
+                                      "fields": [
+                                        {
+                                          "String": {
+                                            "str": "talk"
+                                          }
+                                        },
+                                        {
+                                          "String": {
+                                            "str": "start_time"
+                                          }
+                                        }
+                                      ],
+                                      "location": 129
+                                    }
+                                  },
+                                  {
+                                    "ColumnRef": {
+                                      "fields": [
+                                        {
+                                          "String": {
+                                            "str": "talk"
+                                          }
+                                        },
+                                        {
+                                          "String": {
+                                            "str": "end_time"
+                                          }
+                                        }
+                                      ],
+                                      "location": 146
+                                    }
+                                  }
+                                ],
+                                "funcname": [
+                                  {
+                                    "String": {
+                                      "str": "datediff"
+                                    }
+                                  }
+                                ],
+                                "location": 112
+                              }
+                            },
+                            {
+                              "A_Const": {
+                                "location": 161,
+                                "val": {
+                                  "Integer": {
+                                    "ival": 0
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "funcname": [
+                            {
+                              "String": {
+                                "str": "isnull"
+                              }
+                            }
+                          ],
+                          "location": 105
+                        }
+                      }
+                    ],
+                    "funcname": [
+                      {
+                        "String": {
+                          "str": "avg"
+                        }
+                      }
+                    ],
+                    "location": 101
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "stmt_len": 572
+    }
+  ],
+  "version": 130003
+}
