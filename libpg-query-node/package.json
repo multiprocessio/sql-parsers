@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "libpg-query": "^13.2.4"
+  }
+}
